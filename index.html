@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segurança Digital para a Comunidade | UNISANTA</title>
+<meta name="description" content="Teste seus conhecimentos sobre golpes digitais em um quiz educativo rápido e interativo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="hero">
+
+  <span class="doodle doodle-star doodle-star-1" aria-hidden="true">
+    <svg viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z"/></svg>
+  </span>
+  <span class="doodle doodle-star doodle-star-2" aria-hidden="true">
+    <svg viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16 Z"/></svg>
+  </span>
+  <span class="doodle doodle-plus" aria-hidden="true">+</span>
+  <span class="doodle doodle-dot" aria-hidden="true"></span>
+
+  <div class="hero-inner">
+    <p class="eyebrow-badge">Extensão Curricular · ADS · UNISANTA</p>
+    <h1>ACHE O<br>GOLPE<span class="accent">.</span></h1>
+
+    <div class="hero-illustration" aria-hidden="true">
+      <svg viewBox="0 0 400 300" class="eye-art">
+        <g stroke="#151110" stroke-width="6" stroke-linecap="round" fill="none">
+          <path d="M60 130 L45 100"/>
+          <path d="M80 115 L70 82"/>
+          <path d="M105 105 L100 70"/>
+          <path d="M132 102 L132 66"/>
+          <path d="M160 106 L166 72"/>
+        </g>
+        <path d="M40 150 C 40 95 110 60 175 70 C 230 78 250 130 250 150 C 250 175 210 210 150 212 C 90 214 40 195 40 150 Z"
+          fill="#FFFDF8" stroke="#151110" stroke-width="7"/>
+        <circle cx="152" cy="148" r="58" fill="#7FC8F5" stroke="#151110" stroke-width="7"/>
+        <circle cx="152" cy="148" r="26" fill="#151110"/>
+        <circle cx="168" cy="130" r="9" fill="#FFFDF8"/>
+        <circle cx="200" cy="150" r="86" fill="none" stroke="#151110" stroke-width="9"/>
+        <line x1="256" y1="206" x2="330" y2="278" stroke="#151110" stroke-width="22" stroke-linecap="round"/>
+        <line x1="256" y1="206" x2="330" y2="278" stroke="#F0B429" stroke-width="10" stroke-linecap="round"/>
+        <g transform="translate(255,20)">
+          <path d="M0 20 C0 6 12 0 30 0 L110 0 C128 0 138 8 138 22 L138 66 C138 80 128 88 110 88 L46 88 L18 112 L24 88 L28 88 C10 88 0 78 0 64 Z"
+            fill="#FFFDF8" stroke="#151110" stroke-width="6"/>
+          <text x="69" y="58" font-family="Archivo Black" font-size="46" fill="#F04A26" text-anchor="middle">!</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="hero-sub">Golpes digitais podem parecer mensagens comuns do dia a dia.</p>
+    <p class="hero-text">Teste seus conhecimentos e descubra se você consegue reconhecer os principais sinais de um golpe.</p>
+
+    <div class="hero-cta-row">
+      <button class="btn btn-primary btn-large" id="start-btn">COMEÇAR O TESTE</button>
+      <p class="hero-timer">⏱️ Leva só alguns minutos</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ QUIZ ============ -->
+<main class="quiz-wrap" id="quiz" hidden>
+  <p class="section-kicker">Situação por situação</p>
+  <h2 class="quiz-heading">Você cairia<br>nessa?</h2>
+
+  <div class="progress-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress-bar">
+    <div class="progress-bar-fill" id="progress-fill"></div>
+  </div>
+  <p class="progress-label" id="progress-label">Pergunta 1 de 5</p>
+
+  <div id="question-container"></div>
+</main>
+
+<!-- ============ RESULTADO ============ -->
+<section class="result-wrap" id="result" hidden>
+  <div class="result-card">
+    <div class="result-shield" aria-hidden="true">🛡️</div>
+    <h2>Seu resultado</h2>
+    <p class="result-score"><span id="score-number">0</span><span class="score-of">/5</span></p>
+    <p class="result-message" id="result-message"></p>
+
+    <div class="capture-form">
+      <label for="user-name">Quer registrar sua participação? Digite seu nome:</label>
+      <input type="text" id="user-name" placeholder="Seu nome completo" autocomplete="name">
+      <button class="btn btn-outline capture-btn" id="submit-name-btn" type="button">Enviar</button>
+      <p class="capture-confirm" id="capture-confirm" hidden>✅ Recebido! Obrigado por participar.</p>
+      <p class="capture-error" id="capture-error" hidden></p>
+    </div>
+
+    <div class="ebook-box">
+      <span class="ebook-icon" aria-hidden="true">📘</span>
+      <div class="ebook-text">
+        <p class="ebook-title">Guia Prático de Segurança Digital</p>
+        <p class="ebook-desc">Leve com você um resumo completo com todos os cuidados deste teste, para consultar quando quiser.</p>
+      </div>
+      <a class="btn btn-primary ebook-btn" href="assets/guia-seguranca-digital.pdf" download="Guia-Pratico-de-Seguranca-Digital.pdf">⬇ Baixar e-book (PDF)</a>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn btn-outline" id="restart-btn">Refazer o teste</button>
+      <a href="#alertas" class="btn btn-primary" id="continue-btn">Ver sinais de alerta</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SINAIS DE ALERTA ============ -->
+<section class="alerts-section" id="alertas">
+  <p class="section-kicker">Reconhecer é o primeiro passo</p>
+  <h2>Fique atento<br>quando houver:</h2>
+
+  <div class="alert-grid">
+    <div class="alert-card alert-red">
+      <span class="alert-icon">⏰</span>
+      <h3>Urgência</h3>
+      <p class="alert-example">"Faça agora!"</p>
+    </div>
+    <div class="alert-card alert-purple">
+      <span class="alert-icon">😨</span>
+      <h3>Medo</h3>
+      <p class="alert-example">"Sua conta será bloqueada!"</p>
+    </div>
+    <div class="alert-card alert-yellow">
+      <span class="alert-icon">🎁</span>
+      <h3>Prêmio fácil</h3>
+      <p class="alert-example">"Você ganhou!"</p>
+    </div>
+    <div class="alert-card alert-blue">
+      <span class="alert-icon">💸</span>
+      <h3>Pedido de dinheiro</h3>
+      <p class="alert-example">"Faça um PIX."</p>
+    </div>
+    <div class="alert-card alert-red">
+      <span class="alert-icon">🔑</span>
+      <h3>Pedido de código</h3>
+      <p class="alert-example">"Me informe o código."</p>
+    </div>
+    <div class="alert-card alert-purple">
+      <span class="alert-icon">🔗</span>
+      <h3>Link inesperado</h3>
+      <p class="alert-example">"Clique aqui para resolver."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGRA DE OURO ============ -->
+<section class="golden-rule">
+  <p class="section-kicker section-kicker-light">Vale para qualquer situação</p>
+  <h2>PARE.<br>VERIFIQUE.<br>SÓ DEPOIS AJA.</h2>
+
+  <div class="rule-steps">
+    <div class="rule-step rule-step-pink">
+      <span class="rule-icon">✋</span>
+      <span class="rule-number">01</span>
+      <h3>Pare</h3>
+      <p>Não tome decisões sob pressão.</p>
+    </div>
+    <div class="rule-step rule-step-sky">
+      <span class="rule-icon">🔍</span>
+      <span class="rule-number">02</span>
+      <h3>Verifique</h3>
+      <p>Procure a informação diretamente no canal oficial.</p>
+    </div>
+    <div class="rule-step rule-step-yellow">
+      <span class="rule-icon">🔒</span>
+      <span class="rule-number">03</span>
+      <h3>Proteja-se</h3>
+      <p>Nunca compartilhe senhas ou códigos de segurança.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARTILHE ============ -->
+<section class="share-section">
+  <span class="share-icon">💚</span>
+  <h2>Compartilhe o<br>conhecimento</h2>
+  <p>Uma informação simples pode ajudar a evitar um prejuízo.</p>
+  <p>Converse sobre segurança digital com sua família e com as pessoas próximas.</p>
+</section>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="footer">
+  <h2 class="footer-headline">UNISANTA</h2>
+  <p>Esta página faz parte do Projeto de Extensão Curricular</p>
+  <p class="footer-title">"Segurança Digital para a Comunidade: Prevenção contra Golpes e Ameaças na Internet"</p>
+  <p>Curso de Análise e Desenvolvimento de Sistemas</p>
+  <p>Universidade Santa Cecília — UNISANTA</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
